@@ -6,11 +6,11 @@ import { createFakeContact } from '../utils/createFakeContact.js';
 const generateContacts = async (number) => {
     try {
         const dbPath = path.join(PATH_DB);
-        let contacts = [];
+        let contacts;
     
         try {
             const rawData = await fs.readFile(dbPath, 'utf-8');
-            contacts = JSON.parse(rawData);
+            contacts = rawData ? JSON.parse(rawData) : [];
 
         } catch (error) {
             if (error.code !== 'ENOENT') {
@@ -28,3 +28,7 @@ const generateContacts = async (number) => {
     };
 
 generateContacts(5);
+
+
+
+  

@@ -6,10 +6,10 @@ import { createFakeContact } from '../utils/createFakeContact.js';
 export const addOneContact = async () => {
     try {
         const dbPath = path.join(PATH_DB);
-        let contacts = [];
+        let contacts;
         try {
             const rawData = await fs.readFile(dbPath, 'utf8');
-            contacts = JSON.parse(rawData);
+            contacts = rawData ? JSON.parse(rawData) : [];
         } catch (error) {
             if (error.code !== 'ENOENT') {
             throw error;
