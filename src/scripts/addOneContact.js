@@ -5,7 +5,7 @@ import { createFakeContact } from '../utils/createFakeContact.js';
 
 export const addOneContact = async () => {
     try {
-        const dbPath = path.resolve(PATH_DB);
+        const dbPath = path.join(PATH_DB);
         let contacts = [];
         try {
             const rawData = await fs.readFile(dbPath, 'utf8');

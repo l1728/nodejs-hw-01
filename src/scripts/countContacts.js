@@ -3,7 +3,7 @@ import path from 'path';
 import { PATH_DB } from '../constants/contacts.js';
 
 export const countContacts = async () => {
-    const dbPath = path.resolve(PATH_DB);
+    const dbPath = path.join(PATH_DB);
     try {
         
         const rawData = await fs.readFile(dbPath, 'utf8');
